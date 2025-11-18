@@ -28,7 +28,7 @@ export default function Navbar() {
 
                     <button
                         onClick={toggleBudgetMode}
-                        className='btn btn-secondary'
+                        className={`btn ${budgetMode ? 'btn-warning' : 'btn-primary'}`}
                     >
                         {/* testo che cambia in base allo stato di BudgetMode */}
                         {budgetMode ? 'Disattiva Modalità Budget' : 'Attiva Modalità Budget'}
