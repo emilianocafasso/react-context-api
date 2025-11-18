@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 
@@ -8,20 +8,25 @@ import Products from './pages/Products'
 import DefaultLayout from './Layouts/DefaultLayout'
 import ProductPage from './pages/ProductPage'
 
+import { BudgetProvider } from './Contexts/BudgetContext'
+
 function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<DefaultLayout />}>
-            <Route path='/' element={<Homapage />} />
-            <Route path='/chi-siamo' element={<About />} />
-            <Route path='/prodotti' element={<Products />} />
-            <Route path='/prodotti/:id' element={<ProductPage />} />
-          </Route >
-        </Routes>
-      </BrowserRouter >
+      <BudgetProvider>
+
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<DefaultLayout />}>
+              <Route path='/' element={<Homapage />} />
+              <Route path='/chi-siamo' element={<About />} />
+              <Route path='/prodotti' element={<Products />} />
+              <Route path='/prodotti/:id' element={<ProductPage />} />
+            </Route >
+          </Routes>
+        </BrowserRouter >
+      </BudgetProvider>
     </>
   )
 }
